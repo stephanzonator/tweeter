@@ -1,0 +1,13 @@
+header {
+  background-color: aquamarine;
+  height: 400 px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #bafaff;
+  background-color: #bafaff;
+background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
