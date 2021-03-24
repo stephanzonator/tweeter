@@ -1,3 +1,30 @@
 .new-tweet {
   margin: 0 auto;
 }
+
+output {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  background-color: #4056A1;
+  font-family: 'Bungee', cursive;
+  padding: .5em;
+  border-radius: 25px;
+  color: #f4f1ec;
+}
+
+/* Solid border */
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+.inline-justify {
+  display: flex;
+  justify-content: space-between;
+}
+
+.red {
+  color: red;
+}

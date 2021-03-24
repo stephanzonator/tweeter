@@ -8,6 +8,6 @@ header {
   flex-direction: column;
   background-color: #bafaff;
   background-color: #bafaff;
-background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+  background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }

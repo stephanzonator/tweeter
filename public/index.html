@@ -20,12 +20,13 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter tweeter</span>
+      <span >tweeter tweeter</span>
       <span>Write new tweet</span>
     </nav>
 
@@ -41,27 +42,19 @@
   
 
     <!-- Page-specific (main) content here -->
-    <main class="container">
+    <main class="container"> <!-- Javascript appends more tweets to this element-->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
+          <hr class="solid">
           <textarea name="text" id="tweet-text"></textarea>
-          <div>
+          <div class="inline-justify">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
-      </section> 
-      <p>
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAA
-      </p>
-      <p>
-        BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-      </p>
-      <p>
-        CcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
-      </p>     
+      </section>      
     </main>
   </body>
 </html>
