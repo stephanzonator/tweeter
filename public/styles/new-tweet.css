@@ -1,5 +1,12 @@
 .new-tweet {
-  margin: 0 auto;
+  margin: 3em auto;
+  width: 50%;
+  
+}
+
+textarea {
+  margin: 1em;
+  width: 90%;
 }
 
 output {
@@ -25,6 +32,24 @@ hr.solid {
   justify-content: space-between;
 }
 
+.column-justify {
+  display: flex;
+  justify-content: column;
+}
+
+.flex {
+  display: flex;
+}
+
 .red {
   color: red;
+}
+
+#newTweetError {
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: .5em;
+  border-radius: 25px;
+  display: none;
 }

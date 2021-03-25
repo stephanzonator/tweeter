@@ -1,16 +1,30 @@
 // const tweetDb = require("../../server/lib/in-memory-db");
 $(document).ready(function() {
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+  
 
   //New Tweet handler
   $("form").on("submit", function(event) {
     // console.log(this);
+    $("#newTweetError").hide();
     event.preventDefault();
     const data = $(this).serialize();
     const contents = $(this.querySelector("textarea")).val();
     if (contents.length > 140) {
-      alert("Tweet length too long; please reduce size before submitting");
+      // alert("Tweet too long!");
+      $("#newTweetError").slideDown();
+      $("#newTweetError").show();
+      $("#newTweetError").html("<p>Tweet too long!</p>");
+      
     } else if (contents.length === 0) {
-      alert("Tweet can't be blank!");
+      $("#newTweetError").slideDown();
+      $("#newTweetError").show();
+      $("#newTweetError").html("<p>Tweet can't be blank!</p>");
+      
     } else {
     $.post('/tweets', data)
     .then(function (result) {
@@ -25,15 +39,18 @@ $(document).ready(function() {
   let $tweet = `
   <article>
     <div class="inline-justify">
-      <img src=${tweet["user"]["avatars"]}> 
+      <div>
+        <img class="flex" src=${tweet["user"]["avatars"]}> 
+        <span class="flex">${tweet["user"]["name"]}</span>
+      </div>
       <span class="username">${tweet["user"]["handle"]}</span>
     </div>
     <p>
-    ${tweet["content"]["text"]}
+    ${escape(tweet["content"]["text"])}
     </p>
     <hr class="solid">
     <footer class="inline-justify">          
-      <span>${tweet["created_at"]}</span>
+      <span>${new Date(parseInt(tweet["created_at"]))}</span>
       <span>Like this tweet!</span>
     </footer>
   </article>`;

@@ -39,22 +39,26 @@
           <h2>Your Name</h2>
       </div>
     </header>
+
+    <section class="new-tweet">
+      <div id ="newTweetError"> </div><!-- Javascript appends errors here-->
+      <h2>Compose Tweet</h2>
+      <form action="/tweets" method="POST">
+        <label for="tweet-text">What are you humming about?</label>
+        <hr class="solid">
+        <textarea name="text" id="tweet-text"></textarea>
+        <div class="inline-justify">
+          <button type="submit">Tweet</button>
+          
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </div>
+      </form>
+    </section>    
   
 
     <!-- Page-specific (main) content here -->
     <main class="container"> <!-- Javascript appends more tweets to this element-->
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
-          <hr class="solid">
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="inline-justify">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>      
+        
     </main>
   </body>
 </html>
