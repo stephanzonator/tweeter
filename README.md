@@ -4,6 +4,9 @@ Tweeter is a simple, single-page Twitter clone.
 
 Offers a slick front-end interface that updates in real time as you make tweets. Includes responsive design elements for both desktop and mobile devices.
 
+## Screenshots
+!["Screenshot of desktop interface"](https://github.com/stephanzonator/tweeter/blob/master/docs/desktopscreenshot.png)
+!["Screenshot of mobile interface"](https://github.com/stephanzonator/tweeter/blob/master/docs/mobilescreenshot.png)
 
 ## Getting Started
 
