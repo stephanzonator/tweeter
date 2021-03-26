@@ -26,20 +26,17 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-main {
+.new-tweet{
   width: 90%;
+}
+
+main {
   margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-direction: column-reverse;
   background-color: #f4f1ec;
-  /* background-color: #f4f1ec; */
 }
-
-/* p {
-  display: flex;
-  justify-content: center;
-} */
 
 article {
   background-color: white;
@@ -59,6 +56,49 @@ article:hover {
   visibility: hidden;
 }
 
+.icons {
+  visibility: hidden;
+}
+
+.timestamp {
+  font-size: 14px;
+}
+
 article:hover > div > .username {
   visibility: visible;
 } 
+
+article:hover > footer > .icons {
+  visibility: visible;
+}
+
+.new-tweet {
+  margin: 0 auto;
+  
+}
+
+header {
+  width: 100%;
+  padding: 1em;
+}
+
+@media only screen and (min-width: 1024px) {
+  .desktopview {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+
+  }
+
+  header {
+    display: flex;
+    width: 20%;
+    height: 20%;
+  }
+
+  .desktopcontent {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}

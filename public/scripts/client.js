@@ -1,10 +1,9 @@
-// const tweetDb = require("../../server/lib/in-memory-db");
 $(document).ready(function() {
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
   
 
   //New Tweet handler
@@ -13,6 +12,7 @@ $(document).ready(function() {
     $("#newTweetError").hide();
     event.preventDefault();
     const data = $(this).serialize();
+    const textarea = $(this.querySelector("textarea"));
     const contents = $(this.querySelector("textarea")).val();
     if (contents.length > 140) {
       // alert("Tweet too long!");
@@ -26,34 +26,39 @@ $(document).ready(function() {
       $("#newTweetError").html("<p>Tweet can't be blank!</p>");
       
     } else {
-    $.post('/tweets', data)
-    .then(function (result) {
-      console.log('Success: ', data, result);
-      loadTweets();
-    });
+      $.post('/tweets', data)
+      .then(function(result){
+        console.log('Success: ', data, result);
+        loadTweets();
+        textarea.val("");
+        $(".counter").html("140");
+      });
     }
-
   });
 
   const createTweetElement = function(tweet) {
   let $tweet = `
-  <article>
-    <div class="inline-justify">
-      <div>
-        <img class="flex" src=${tweet["user"]["avatars"]}> 
-        <span class="flex">${tweet["user"]["name"]}</span>
+    <article>
+      <div class="inline-justify">
+        <div>
+          <img class="flex" src=${tweet["user"]["avatars"]}> 
+          <span class="flex">${tweet["user"]["name"]}</span>
+        </div>
+        <span class="username">${tweet["user"]["handle"]}</span>
       </div>
-      <span class="username">${tweet["user"]["handle"]}</span>
-    </div>
-    <p>
-    ${escape(tweet["content"]["text"])}
-    </p>
-    <hr class="solid">
-    <footer class="inline-justify">          
-      <span>${new Date(parseInt(tweet["created_at"]))}</span>
-      <span>Like this tweet!</span>
-    </footer>
-  </article>`;
+      <p>
+      ${escape(tweet["content"]["text"])}
+      </p>
+      <hr class="solid">
+      <footer class="inline-justify">          
+        <span class="timestamp">${new Date(parseInt(tweet["created_at"]))}</span>
+        <span class="icons">
+          <img src="/images/like.png"> 
+          <img src="/images/arrows.png">
+          <img src="/images/flag.png">
+        </span>
+      </footer>
+    </article>`;
   return $tweet;
   // return "returned tweet";
   };
@@ -66,7 +71,6 @@ $(document).ready(function() {
     }
     // console.log(result);
     return $(".container").append(result);
-    
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
@@ -74,7 +78,7 @@ $(document).ready(function() {
 
   const loadTweets  = function() {
     $.get('/tweets')
-    .then(function (result) {
+    .then(function(result) {
       renderTweets(result);
     });
   };
